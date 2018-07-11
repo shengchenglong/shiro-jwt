@@ -15,11 +15,4 @@ public class ShiroJwtApplication {
         SpringApplication.run(ShiroJwtApplication.class, args);
     }
 
-    @Bean
-    public Map<String, User> userDao() {
-        Map<String, User> userMap = new HashMap<>();
-        userMap.put("admin", new User("admin", "admin", "admin", "view,edit"));
-        userMap.put("scl", new User("scl", "scl", "user", "view"));
-        return userMap;
-    }
 }

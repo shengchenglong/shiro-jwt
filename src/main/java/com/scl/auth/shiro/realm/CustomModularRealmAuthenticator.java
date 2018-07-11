@@ -7,9 +7,15 @@ import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.pam.ModularRealmAuthenticator;
 import org.apache.shiro.realm.Realm;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 
+/**
+ * 根据Realm 的name 和请求类型，来判断请求的权限控制 对应的 Realm
+ *
+ * @author shengchenglong
+ */
 public class CustomModularRealmAuthenticator extends ModularRealmAuthenticator {
 
     @Override
@@ -31,8 +37,8 @@ public class CustomModularRealmAuthenticator extends ModularRealmAuthenticator {
     }
 
     // TODO map realm
-    @Override
-    public void setRealms(Collection<Realm> realms) {
-        super.setRealms(realms);
-    }
+//    @Override
+//    public void setRealms(Collection<Realm> realms) {
+//        super.setRealms(realms);
+//    }
 }

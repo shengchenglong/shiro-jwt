@@ -1,8 +1,12 @@
 package com.scl.auth.bean;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class ResponseBean {
 
     // http 状态码
@@ -14,10 +18,4 @@ public class ResponseBean {
     // 返回的数据
     private Object data;
 
-    public ResponseBean(int code, String msg, Object data) {
-        this.code = code;
-        this.msg = msg;
-        this.data = data;
-
-    }
 }

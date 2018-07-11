@@ -8,13 +8,20 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.security.auth.login.AccountNotFoundException;
 
+/**
+ * 管理端登录
+ *
+ * @author shengchenglong
+ */
+@Component
 public class ManageLoginRealm extends AuthorizingRealm {
 
     @Autowired
-    private UserService userService;
+    private UserService userService = new UserService();
 
     @Override
     public String getName() {
@@ -35,7 +42,7 @@ public class ManageLoginRealm extends AuthorizingRealm {
             throw new UnknownAccountException();
         }
 
-        String password = (String) token.getCredentials();
+        String password = new String((char[]) token.getCredentials());
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(username, password, this.getName());
         return authenticationInfo;
     }
